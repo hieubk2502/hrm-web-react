@@ -6,8 +6,8 @@ import SalaryComponentTab from './components/SalaryComponentTab';
 import { useBreadcrumbs } from '../../../hooks/useBreadcrumbs';
 
 const selectorOptions = [
-    { value: 'policy-salary', label: 'Chính sách lương theo đơn vị' },
-    { value: 'component-salary', label: 'Thành phần lương theo đơn vị' },
+    { value: 'policy-salary', label: 'Chính sách lương ' },
+    { value: 'component-salary', label: 'Thành phần lương ' },
 ];
 
 const tabItems = [

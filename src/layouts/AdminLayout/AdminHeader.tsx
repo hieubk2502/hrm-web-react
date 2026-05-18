@@ -17,14 +17,14 @@ export default function AdminHeader() {
                     mode="horizontal"
                     selectedKeys={['hr']}
                     items={headerMenuItems}
-                    className="border-none min-w-300 font-medium h-14"
+                    className="border-none min-w-280 font-medium h-14"
                 />
             </div>
             <div className="flex items-center gap-6">
                 <Badge count={99} overflowCount={99}>
                     <BellOutlined className="text-xl cursor-pointer text-gray-600" />
                 </Badge>
-                <div className="flex items-center cursor-pointer gap-2">
+                <div className="flex items-center cursor-pointer gap-2 mr-4">
                     <Avatar className="!bg-amber-300 mr-2">h</Avatar>
                     <span className="text-sm font-medium">hieutm</span>
                 </div>

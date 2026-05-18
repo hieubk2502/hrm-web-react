@@ -19,7 +19,7 @@ export default function AdminSidebar({ collapsed, selectedKey, onToggle }: Admin
             width={320}
             theme="dark"
             style={{ background: '#1967db' }}
-            className="overflow-auto h-[calc(100vh-56px)] fixed left-0"
+            className="overflow-auto h-screen fixed left-0"
         >
             <button
                 type="button"
