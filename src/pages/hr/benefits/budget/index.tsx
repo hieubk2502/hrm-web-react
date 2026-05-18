@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Tabs } from 'antd';
 import PageHeader from './components/PageHeader';
-import SalaryPolicyTab from './components/SalaryPolicyTab';
-import SalaryComponentTab from './components/SalaryComponentTab';
-import { useBreadcrumbs } from '../../../hooks/useBreadcrumbs';
+import SalaryPolicyTab from './policy-salary';
+import SalaryComponentTab from './component-salary';
+import { useBreadcrumbs } from '../../../../hooks/useBreadcrumbs';
 
 const selectorOptions = [
     { value: 'policy-salary', label: 'Chính sách lương ' },

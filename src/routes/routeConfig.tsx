@@ -1,7 +1,7 @@
 import {Navigate} from "react-router-dom";
 import {DashboardOutlined, DollarOutlined, TeamOutlined} from '@ant-design/icons';
 import Dashboard from "../pages/hr/Dashboard";
-import Budget from "../pages/hr/benefits/Budget";
+import Budget from "../pages/hr/benefits/budget";
 import {PATHS, ROUTES} from "../constants/routeNames";
 
 export const hrRoutes = [
