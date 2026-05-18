@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Avatar, Badge, Layout, Menu} from 'antd';
 import {Link, Outlet, useLocation} from 'react-router-dom';
 import {
-  BellOutlined,
-  DashboardOutlined,
-  DollarOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  TeamOutlined
+    BellOutlined,
+    DashboardOutlined,
+    DollarOutlined,
+    MenuFoldOutlined,
+    MenuUnfoldOutlined,
+    TeamOutlined
 } from '@ant-design/icons';
 import {ROUTES} from '../constants/routeNames';
 
@@ -56,40 +56,39 @@ export default function AdminLayout() {
 
     return (
         <Layout className="min-h-screen">
-            {/* HEADER */}
             <Header
-                className="bg-white px-4 flex items-center justify-between border-b border-gray-200 h-14 w-full fixed z-10">
+                className="!bg-white !px-4 flex items-center justify-between border-b border-gray-100 h-14 w-full fixed z-10">
                 <div className="flex items-center h-full">
                     <div className="w-48 text-blue-800 font-extrabold text-xl mr-8 flex items-center h-full">
                         <span className="mr-1 text-2xl">▲</span>
                         <span>DNP</span>
-                        <span className="font-normal text-gray-500 text-sm ml-2 relative top-[2px]">water</span>
+                        <span className="font-normal text-black text-sm ml-2 relative top-0.5">water</span>
                     </div>
                     <Menu
                         mode="horizontal"
                         selectedKeys={['hr']}
                         items={headerMenuItems}
-                        className="border-none min-w-[800px] font-medium h-14 leading-[56px]"
+                        className="border-none min-w-280 font-medium h-14 leading-14"
                     />
                 </div>
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center gap-6">
                     <Badge count={99} overflowCount={99}>
                         <BellOutlined className="text-xl cursor-pointer text-gray-600"/>
                     </Badge>
                     <div className="flex items-center cursor-pointer">
-                        <Avatar className="bg-red-500 mr-2">h</Avatar>
+                        <Avatar className="!bg-amber-300 !mr-2">h</Avatar>
                         <span className="text-sm font-medium">hieutm</span>
                     </div>
                 </div>
             </Header>
 
-            <Layout className="mt-14">
+            <Layout className="mr-">
                 {/* SIDEBAR */}
                 <Sider
                     trigger={null}
                     collapsible
                     collapsed={collapsed}
-                    width={280}
+                    width={250}
                     theme="dark"
                     style={{background: '#0052cc'}}
                     className="overflow-auto h-[calc(100vh-56px)] fixed left-0 top-14"
@@ -112,9 +111,9 @@ export default function AdminLayout() {
                 </Sider>
 
                 {/* MAIN CONTENT */}
-                <Layout className="bg-gray-50 transition-all duration-300" style={{marginLeft: collapsed ? 80 : 280}}>
+                <Layout className="bg-gray-50 transition-all duration-300">
                     <Content
-                        className="m-4 bg-white p-6 rounded-md shadow-sm border border-gray-200 min-h-[calc(100vh-150px)]">
+                        className="m-1 bg-white p-6 rounded-md shadow-sm border border-gray-200 min-h-[calc(100vh-150px)]">
                         <Outlet/>
                     </Content>
                     <Footer className="text-center text-gray-500 text-xs py-4">

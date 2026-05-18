@@ -133,7 +133,7 @@ export default function Budget() {
                         }}
                         bordered={false}
                         size="middle"
-                        rowClassName={(record, index) => index === 0 ? 'bg-blue-50/50' : ''}
+                        rowClassName={(record, index) => record != null && index === 0 ? 'bg-blue-50/50' : ''}
                     />
                 </div>
             )
