@@ -84,6 +84,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return false;
     }, []);
 
+    // B2: Xac thuc ma OTP 
+    const loginWithOTP = useCallback(async (username: string, otp: string) => {
+        setLoading(true);
+
+        // Giả lập độ trễ mạng api call
+        await new Promise(resolve => setTimeout(resolve, 800));
+
+        const mockUser = MOCK_USERS[username.toLowerCase()];
+        if (mockUser && otp === '123456') {
+            setUser(mockUser.info);
+            localStorage.setItem('hrm_user', JSON.stringify(mockUser.info));
+            setLoading(false);
+            return true;
+        }
+
+        setLoading(false);
+        return false;
+    }, []);
+
 
     const logout = useCallback(() => {
         setUser(null);
@@ -98,6 +117,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 isAuthenticated: !!user,
                 loading,
                 login,
+                verifyCredentials,
+                loginWithOTP,
                 logout,
             }}
         >
