@@ -2,7 +2,7 @@ import { Layout, Menu } from 'antd';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { siderMenuItems } from './menuItems';
 
-type AdminSidebarProps = {
+type SidebarProps = {
     collapsed: boolean;
     selectedKey: string;
     onToggle: () => void;
@@ -10,7 +10,7 @@ type AdminSidebarProps = {
 
 const { Sider } = Layout;
 
-export default function AdminSidebar({ collapsed, selectedKey, onToggle }: AdminSidebarProps) {
+export default function Sidebar({ collapsed, selectedKey, onToggle }: SidebarProps) {
     return (
         <Sider
             trigger={null}

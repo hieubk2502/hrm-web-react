@@ -4,7 +4,7 @@ import { headerMenuItems } from './menuItems';
 
 const { Header } = Layout;
 
-export default function AdminHeader() {
+export default function AppHeader() {
     return (
         <Header className="!bg-white !px-4 flex items-center justify-between border-b border-gray-100 h-14 w-full fixed z-10">
             <div className="flex items-center h-full">

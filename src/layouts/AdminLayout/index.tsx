@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Layout } from 'antd';
 import { Outlet, useLocation } from 'react-router-dom';
-import AdminFooter from './AdminFooter';
-import AdminHeader from './AdminHeader';
-import AdminSidebar from './AdminSidebar';
+import AppFooter from './Footer';
+import AppHeader from './Header';
+import Sidebar from './Sidebar';
 
 const { Content } = Layout;
 
@@ -13,10 +13,10 @@ export default function AdminLayout() {
 
     return (
         <Layout className="min-h-screen">
-            <AdminHeader />
+            <AppHeader />
 
             <Layout className="mt-14">
-                <AdminSidebar
+                <Sidebar
                     collapsed={collapsed}
                     onToggle={() => setCollapsed((value) => !value)}
                     selectedKey={location.pathname}
@@ -30,7 +30,7 @@ export default function AdminLayout() {
                             <Outlet />
                         </Content>
                     </div>
-                    <AdminFooter />
+                    <AppFooter />
                 </Layout>
             </Layout>
         </Layout>
