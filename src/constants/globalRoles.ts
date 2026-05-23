@@ -1,9 +1,9 @@
-export const GLOBAL_ROLES = {
-    ADMIN: 'admin',
-    MANAGER: 'manager',
-    USER: 'user',
-    HR: 'hr',
-    EMPLOYEE: 'employee',
-} as const;
-
-export type GlobalRole = typeof GLOBAL_ROLES[keyof typeof GLOBAL_ROLES];
+export const ROLE_PATHS = {
+    DASHBOARD: '/hr/dashboard',
+    OKR: '/hr/okr',
+    ORG: '/hr/org',
+    BENEFITS: '/hr/benefits',
+    BUDGET: '/hr/benefits/budget',
+    BONUS: '/hr/benefits/bonus',
+    SALARY: '/hr/benefits/salary',
+};

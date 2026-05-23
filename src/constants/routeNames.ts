@@ -1,4 +1,5 @@
 export const PATHS = {
+    LOGIN: 'login',
     HR: 'hr',
     DASHBOARD: 'dashboard',
     OKR: 'okr',
@@ -12,6 +13,7 @@ export const PATHS = {
 
 export const ROUTES = {
     HOME: '/',
+    LOGIN: '/login',
     HR: {
         ROOT: `/${PATHS.HR}`,
         DASHBOARD: `/${PATHS.HR}/${PATHS.DASHBOARD}`,
@@ -27,12 +29,4 @@ export const ROUTES = {
     }
 };
 
-export const ROLE_PATHS = {
-    DASHBOARD: '/hr/dashboard',
-    OKR: '/hr/okr',
-    ORG: '/hr/org',
-    BENEFITS: '/hr/benefits',
-    BUDGET: '/hr/benefits/budget',
-    BONUS: '/hr/benefits/bonus',
-    SALARY: '/hr/benefits/salary',
-};
+

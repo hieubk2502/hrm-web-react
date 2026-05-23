@@ -4,7 +4,7 @@ type PermissionContextType = {
     permissions: string[];
     loading: boolean;
     error: string | null;
-    fetchPermissions: () => Promise<void>;
+    fetchPermissions: (role?: string) => Promise<void>;
     hasPermission: (path: string) => boolean;
     getAllPermissions: () => string[];
 };
@@ -12,27 +12,40 @@ type PermissionContextType = {
 const PermissionContext = createContext<PermissionContextType | undefined>(undefined);
 
 export function PermissionProvider({ children }: { children: ReactNode }) {
-    const [permissions, setPermissions] = useState<string[]>([]);
+    const [permissions, setPermissions] = useState<string[]>(() => {
+        const saved = localStorage.getItem('hrm_permissions');
+        return saved ? JSON.parse(saved) : [];
+    });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const fetchPermissions = useCallback(async () => {
+    const fetchPermissions = useCallback(async (role?: string) => {
         setLoading(true);
         setError(null);
         try {
-            // Replace this with your actual API call
-            // const response = await fetch('/api/permissions');
-            // const data = await response.json();
-            // setPermissions(data.permissions);
+            let rolePermissions: string[] = [];
 
-            // Mock data for now
-            setPermissions([
-                '/hr/dashboard',
-                '/hr/benefits',
-                '/hr/benefits/budget',
-                '/hr/benefits/bonus',
-                '/hr/okr',
-            ]);
+            if (role === 'admin') {
+                rolePermissions = [
+                    '/hr/dashboard',
+                    '/hr/okr',
+                    '/hr/org',
+                    '/hr/benefits',
+                    '/hr/benefits/budget',
+                    '/hr/benefits/bonus',
+                    '/hr/benefits/salary',
+                ];
+            } else if (role === 'employee') {
+                rolePermissions = [
+                    '/hr/dashboard',
+                    '/hr/okr',
+                    '/hr/benefits',
+                    '/hr/benefits/budget',
+                ];
+            }
+
+            setPermissions(rolePermissions);
+            localStorage.setItem('hrm_permissions', JSON.stringify(rolePermissions));
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to fetch permissions');
         } finally {

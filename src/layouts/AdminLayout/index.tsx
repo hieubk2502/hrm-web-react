@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Layout } from 'antd';
-import { Outlet, useLocation, useMatches } from 'react-router-dom';
+import { Outlet, useLocation, useMatches, Navigate } from 'react-router-dom';
 import { usePermissionStore } from '../../store/permissionStore';
+import { useAuthStore } from '../../store/authStore';
+import { ROUTES } from '../../constants/routeNames';
 import Unauthorized from '../../pages/Unauthorized';
 import AppFooter from './Footer';
 import AppHeader from './Header';
@@ -13,14 +15,20 @@ export default function AdminLayout() {
     const [collapsed, setCollapsed] = useState(false);
     const location = useLocation();
     const matches = useMatches();
+    const authStore = useAuthStore();
     const permissionStore = usePermissionStore();
 
     useEffect(() => {
-        // Fetch permissions on mount
-        if (permissionStore.getAllPermissions.length === 0) {
-            permissionStore.fetchPermissions();
+        // Fetch permissions on mount if user is authenticated
+        if (authStore.isAuthenticated && permissionStore.permissions.length === 0) {
+            permissionStore.fetchPermissions(authStore.user?.role);
         }
-    }, []);
+    }, [authStore.isAuthenticated, authStore.user?.role, permissionStore.permissions.length]);
+
+    // Check if user is logged in
+    if (!authStore.isAuthenticated) {
+        return <Navigate to={ROUTES.LOGIN} state={{ from: location }} replace />;
+    }
 
     // Get the role from current route match
     const currentMatch = matches[matches.length - 1];
