@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { usePermissionStore } from '../store/permissionStore';
-import Unauthorized from '../pages/Unauthorized';
+import Unauthorized from '../pages/common/Unauthorized';
 
 export function useRoutePermission() {
     const location = useLocation();

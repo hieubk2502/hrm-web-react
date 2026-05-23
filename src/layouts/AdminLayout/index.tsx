@@ -4,7 +4,7 @@ import { Outlet, useLocation, useMatches, Navigate } from 'react-router-dom';
 import { usePermissionStore } from '../../store/permissionStore';
 import { useAuthStore } from '../../store/authStore';
 import { ROUTES } from '../../constants/routeNames';
-import Unauthorized from '../../pages/Unauthorized';
+import Unauthorized from '../../pages/common/Unauthorized';
 import AppFooter from './Footer';
 import AppHeader from './Header';
 import Sidebar from './Sidebar';

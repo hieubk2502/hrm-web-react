@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { usePermissionStore } from '../store/permissionStore';
-import Unauthorized from '../pages/Unauthorized';
+import Unauthorized from '../pages/common/Unauthorized';
 
 type ProtectedRouteProps = {
     element: ReactNode;

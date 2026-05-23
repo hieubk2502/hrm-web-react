@@ -13,6 +13,8 @@ interface AuthContextType {
     isAuthenticated: boolean;
     loading: boolean;
     login: (username: string, password: string) => Promise<boolean>;
+    verifyCredentials: (username: string, password: string) => Promise<boolean>;
+    loginWithOTP: (username: string, otp: string) => Promise<boolean>;
     logout: () => void;
 }
 
@@ -65,6 +67,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setLoading(false);
         return false;
     }, []);
+
+    const verifyCredentials = useCallback(async (username: string, password: string) => {
+        setLoading(true);
+
+        // Giả lập độ trễ mạng api call
+        await new Promise(resolve => setTimeout(resolve, 800));
+
+        const mockUser = MOCK_USERS[username.toLowerCase()];
+        if (mockUser && mockUser.password === password) {
+            setLoading(false);
+            return true;
+        }
+
+        setLoading(false);
+        return false;
+    }, []);
+
 
     const logout = useCallback(() => {
         setUser(null);
