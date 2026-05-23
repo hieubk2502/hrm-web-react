@@ -2,7 +2,7 @@ import {Navigate} from "react-router-dom";
 import {DashboardOutlined, DollarOutlined, TeamOutlined} from '@ant-design/icons';
 import Dashboard from "../pages/hr/Dashboard";
 import Budget from "../pages/hr/benefits/budget";
-import {PATHS, ROUTES} from "../constants/routeNames";
+import {PATHS, ROUTES, ROLE_PATHS} from "../constants/routeNames";
 
 export const hrRoutes = [
     {
@@ -11,7 +11,7 @@ export const hrRoutes = [
         handle: { 
             title: 'DASHBOARD',
             name: 'dashboard',
-            role: '/hr/dashboard',
+            role: ROLE_PATHS.DASHBOARD,
             icon: <DashboardOutlined/>, 
             showInMenu: true 
         }
@@ -21,7 +21,7 @@ export const hrRoutes = [
         handle: { 
             title: 'OKR - KPI TỔ CHỨC',
             name: 'okr',
-            role: '/hr/okr',
+            role: ROLE_PATHS.OKR,
             icon: <TeamOutlined/>, 
             showInMenu: true 
         }
@@ -31,7 +31,7 @@ export const hrRoutes = [
         handle: { 
             title: 'QUẢN LÝ TỔ CHỨC',
             name: 'organization',
-            role: '/hr/org',
+            role: ROLE_PATHS.ORG,
             icon: <TeamOutlined/>, 
             showInMenu: true 
         }
@@ -41,7 +41,7 @@ export const hrRoutes = [
         handle: { 
             title: 'THU NHẬP VÀ PHÚC LỢI',
             name: 'benefits',
-            role: '/hr/benefits',
+            role: ROLE_PATHS.BENEFITS,
             icon: <DollarOutlined/>, 
             showInMenu: true 
         },
@@ -56,7 +56,7 @@ export const hrRoutes = [
                 handle: { 
                     title: 'NGÂN SÁCH & KẾ HOẠCH',
                     name: 'budget',
-                    role: '/hr/benefits/budget',
+                    role: ROLE_PATHS.BUDGET,
                     showInMenu: true 
                 }
             },
@@ -65,7 +65,7 @@ export const hrRoutes = [
                 handle: { 
                     title: 'THƯỞNG HIỆU QUẢ CUỐI NĂM',
                     name: 'bonus',
-                    role: '/hr/benefits/bonus',
+                    role: ROLE_PATHS.BONUS,
                     showInMenu: true 
                 }
             },
@@ -74,7 +74,7 @@ export const hrRoutes = [
                 handle: { 
                     title: 'BẢNG LƯƠNG',
                     name: 'salary',
-                    role: '/hr/benefits/salary',
+                    role: ROLE_PATHS.SALARY,
                     showInMenu: true 
                 }
             }
